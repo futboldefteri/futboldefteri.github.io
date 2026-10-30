@@ -8,6 +8,7 @@ var o=document.getElementById("o"),L=[];function y(s){L.push(s);o.textContent=L.
 y("tarayici: "+navigator.userAgent);y("pencere genisligi: "+innerWidth+" px · dar ekran kurali: "+matchMedia("(max-width:860px)").matches);
 y("saat (UTC): "+new Date().toISOString());
 var g=new Date(Date.now()+3*36e5).toISOString().slice(0,10).replace(/-/g,"");
+fetch("canli.json").then(function(r){return r.json()}).then(function(j){y("canli.json (onbellekli okuma): gun alani "+(("gun" in (j.lig.tr||{}))?"VAR":"YOK -> eski kopya"))}).catch(function(e){y("canli.json okunamadi: "+e)});
 var A=[["site.api","https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates="+g],
 ["site.web.api","https://site.web.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates="+g],
 ["site.api (tarihsiz)","https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard"],

@@ -1,4 +1,4 @@
-<!doctype html><html lang="tr" data-kok="../"><head><meta charset="utf-8">
+<!doctype html><html lang="tr" data-kok="../" data-cv="46b8afc3ae"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>M&#x27;gladbach – SC Paderborn 07 · Futbol Defteri</title>
 <meta name="description" content="Altı ligin maçları için istatistiksel olasılıklar ve kişisel yorum. Bahis tavsiyesi değildir.">
@@ -45,13 +45,13 @@ else{serit.hidden=false;d.body.classList.add("serit-var");ak(serit.querySelector
 if(sol&&o.length){sol.querySelector(".baslik").innerHTML=c.length?'Canlı <small class="gec">birkaç dk gecikmeli</small>':"Bugün biten";
 ak(sol.querySelector(".kutu"),sol.querySelector(".liste"),o.map(oge).join(""),false)}}
 function cek(){if(d.hidden||!veri)return;var g=gun();
-Promise.all(Object.keys(veri.lig).filter(function(lg){return(veri.lig[lg].gun||[]).indexOf(g)>=0}).map(function(lg){
-return fetch("https://cdn.espn.com/core/soccer/scoreboard?xhr=1&league="+veri.lig[lg].espn+"&dates="+g)
+Promise.all(Object.keys(veri.lig).filter(function(lg){var x=veri.lig[lg].gun;return!x||x.indexOf(g)>=0}).map(function(lg){
+return fetch("https://cdn.espn.com/core/soccer/scoreboard?xhr=1&league="+veri.lig[lg].espn+"&dates="+g,{cache:"no-store"})
 .then(function(r){return r.ok?r.json():{}}).catch(function(){return{}})
 .then(function(j){return(((j.content||{}).sbData||{}).events||[]).map(function(e){return[lg,e]})})})).then(function(ls){var o=[];
 ls.forEach(function(l){l.forEach(function(p){var lg=p[0],e=p[1],st=e.status&&e.status.type;if(!st||st.state==="pre")return;
 var h,a;e.competitions[0].competitors.forEach(function(x){x.homeAway==="home"?h=x:a=x});
 var t=veri.lig[lg].takim,hs=t[h.team.id],as=t[a.team.id],m=veri.mac[lg+"|"+hs+"|"+as];if(!m)return;
 o.push({m:m,lg:lg,hs:hs,as:as,hg:h.score,ag:a.score,canli:st.state==="in",dk:st.shortDetail})})});ciz(o)})}
-fetch(kok+"canli.json").then(function(r){return r.json()}).then(function(j){veri=j;cek();setInterval(cek,6e4);
+fetch(kok+"canli.json?v="+(d.documentElement.dataset.cv||""),{cache:"no-store"}).then(function(r){return r.json()}).then(function(j){veri=j;cek();setInterval(cek,6e4);
 d.addEventListener("visibilitychange",cek)}).catch(function(){})})();</script></body></html>
