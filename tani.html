@@ -8,12 +8,12 @@ var o=document.getElementById("o"),L=[];function y(s){L.push(s);o.textContent=L.
 y("tarayici: "+navigator.userAgent);y("pencere genisligi: "+innerWidth+" px · dar ekran kurali: "+matchMedia("(max-width:860px)").matches);
 y("saat (UTC): "+new Date().toISOString());
 var g=new Date(Date.now()+3*36e5).toISOString().slice(0,10).replace(/-/g,"");
-fetch("canli.json",{cache:"no-store"}).then(function(r){y("canli.json: HTTP "+r.status);return r.json()}).then(function(j){
- y("canli.json ligler: "+Object.keys(j.lig).join(","));
- return fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates="+g,{cache:"no-store"});
-}).then(function(r){y("ESPN: HTTP "+r.status);return r.json()}).then(function(d){
- var n=0;(d.events||[]).forEach(function(e){var st=e.status.type;var c=e.competitions[0].competitors;
-  y("  "+st.state+" "+st.shortDetail+" · "+c.map(function(x){return x.team.displayName+" "+x.score}).join(" - "));n++});
- y("ESPN olay sayisi: "+n);y("SONUC: ESPN erisilebilir");
-}).catch(function(e){y("HATA: "+(e&&e.message||e));y("SONUC: ESPN istegi engellendi (eklenti, izleme korumasi ya da ag)")});
+var A=[["site.api","https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates="+g],
+["site.web.api","https://site.web.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates="+g],
+["site.api (tarihsiz)","https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard"],
+["cdn core","https://cdn.espn.com/core/soccer/scoreboard?xhr=1&league=tur.1&dates="+g]];
+var sira=Promise.resolve();A.forEach(function(a){sira=sira.then(function(){
+ return fetch(a[1],{cache:"no-store"}).then(function(r){return r.text().then(function(t){y(a[0]+": HTTP "+r.status+" · "+t.length+" bayt · "+(t.indexOf("Konyaspor")>=0?"Konya VAR":"Konya yok"))})})
+ .catch(function(e){y(a[0]+": HATA "+(e&&e.message||e))})})});
+sira.then(function(){y("bitti")});
 </script></body></html>
