@@ -19,13 +19,13 @@
 <div class="gez"><a href="fr-lille-lens-20261030.html">← Lille</a><a href="fr-strasbourg-auxerre-20261101.html">Strasbourg →</a></div>
 <footer><span>18+</span><span>Kişisel görüş ve istatistiksel yorumdur, bahis tavsiyesi değildir.</span>
 <a href="../hakkinda.html">Hakkında ve yasal uyarı</a></footer></div>
-<div class="serit" id="serit" hidden><span class="serit-et">Canlı<small class="gec">birkaç dk gecikmeli</small></span><div class="serit-ic"><div class="liste"></div></div></div><script>(function(){var d=document.documentElement,b=document.querySelectorAll(".tema button");
+<div class="serit" id="serit" hidden><span class="serit-et">Canlı<small class="gec"></small></span><div class="serit-ic"><div class="liste"></div></div></div><script>(function(){var d=document.documentElement,b=document.querySelectorAll(".tema button");
 function goster(){var t=d.dataset.theme||"system";b.forEach(function(x){x.setAttribute("aria-pressed",x.dataset.t===t)})}
 b.forEach(function(x){x.addEventListener("click",function(){var t=x.dataset.t;
 if(t==="system"){delete d.dataset.theme;try{localStorage.removeItem("tema")}catch(e){}}
 else{d.dataset.theme=t;try{localStorage.setItem("tema",t)}catch(e){}}goster()})});goster()})();</script><script>(function(){
 var d=document,kok=d.documentElement.dataset.kok||"",sol=d.getElementById("canli-sol"),serit=d.getElementById("serit");
-if((!sol&&!serit)||matchMedia("(max-width:860px)").matches)return;var veri;
+if((!sol&&!serit)||matchMedia("(max-width:860px)").matches)return;var veri,gec=false;
 if(sol){sol.querySelectorAll(".cs[data-t]").forEach(function(x){if(+x.dataset.t<Date.now())x.remove()});
 var sl=sol.querySelector(".liste");setTimeout(function(){ak(sol.querySelector(".kutu"),sl,sl.innerHTML,false)},0)}
 function es(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
@@ -39,16 +39,18 @@ if(tas){liste.innerHTML=html+html;liste.style.animationDuration=(liste.children.
 function ciz(o){o.sort(function(a,b){return b.canli-a.canli});
 o.forEach(function(x){var et='<small class="'+(x.canli?"cn":"")+'">'+es(x.canli?x.dk:"MS")+'</small>';
 d.querySelectorAll('[data-canli="'+x.m.k+'"]').forEach(function(el){el.innerHTML=es(x.hg)+"-"+es(x.ag)+et});
-d.querySelectorAll('[data-canli-mac="'+x.m.k+'"]').forEach(function(el){el.innerHTML='<div class="skor">'+es(x.hg)+" – "+es(x.ag)+'</div><div class="dk-m">'+et+'</div>'})});var c=o.filter(function(x){return x.canli});
-if(serit){if(!c.length){serit.hidden=true;d.body.classList.remove("serit-var")}
+d.querySelectorAll('[data-canli-mac="'+x.m.k+'"]').forEach(function(el){el.innerHTML='<div class="skor">'+es(x.hg)+" – "+es(x.ag)+'</div><div class="dk-m">'+et+'</div>'})});var c=o.filter(function(x){return x.canli}),gt=gec?"birkaç dk gecikmeli":"";
+if(serit){serit.querySelector(".gec").textContent=gt;if(!c.length){serit.hidden=true;d.body.classList.remove("serit-var")}
 else{serit.hidden=false;d.body.classList.add("serit-var");ak(serit.querySelector(".serit-ic"),serit.querySelector(".liste"),c.map(oge).join(""),true)}}
-if(sol&&o.length){sol.querySelector(".baslik").innerHTML=c.length?'Canlı <small class="gec">birkaç dk gecikmeli</small>':"Bugün biten";
+if(sol&&o.length){sol.querySelector(".baslik").innerHTML=c.length?'Canlı <small class="gec">'+gt+'</small>':"Bugün biten";
 ak(sol.querySelector(".kutu"),sol.querySelector(".liste"),o.map(oge).join(""),false)}}
+function al(lg,g){var e=veri.lig[lg].espn,j=function(r){if(!r.ok)throw r;return r.json()};
+return fetch("https://canli.ersinpge.workers.dev/?league="+e+"&dates="+g,{cache:"no-store"}).then(j).then(function(x){gec=false;return x.events||[]})
+.catch(function(){return fetch("https://cdn.espn.com/core/soccer/scoreboard?xhr=1&league="+e+"&dates="+g,{cache:"no-store"}).then(j)
+.then(function(x){gec=true;return((x.content||{}).sbData||{}).events||[]})}).catch(function(){return[]})}
 function cek(){if(d.hidden||!veri)return;var g=gun();
 Promise.all(Object.keys(veri.lig).filter(function(lg){var x=veri.lig[lg].gun;return!x||x.indexOf(g)>=0}).map(function(lg){
-return fetch("https://cdn.espn.com/core/soccer/scoreboard?xhr=1&league="+veri.lig[lg].espn+"&dates="+g,{cache:"no-store"})
-.then(function(r){return r.ok?r.json():{}}).catch(function(){return{}})
-.then(function(j){return(((j.content||{}).sbData||{}).events||[]).map(function(e){return[lg,e]})})})).then(function(ls){var o=[];
+return al(lg,g).then(function(l){return l.map(function(e){return[lg,e]})})})).then(function(ls){var o=[];
 ls.forEach(function(l){l.forEach(function(p){var lg=p[0],e=p[1],st=e.status&&e.status.type;if(!st||st.state==="pre")return;
 var h,a;e.competitions[0].competitors.forEach(function(x){x.homeAway==="home"?h=x:a=x});
 var t=veri.lig[lg].takim,hs=t[h.team.id],as=t[a.team.id],m=veri.mac[lg+"|"+hs+"|"+as];if(!m)return;
