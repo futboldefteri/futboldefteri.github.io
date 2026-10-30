@@ -5,7 +5,7 @@
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../simge-180.png">
 <script>try{var t=localStorage.getItem("tema");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="../stil.css?v=f72bddff46"></head><body>
+<link rel="stylesheet" href="../stil.css?v=79dc60e679"></head><body>
 <header class="ust"><div class="ic"><a class="logo" href="../index.html"><img src="../favicon.svg" alt="" width="26" height="26">Futbol Defteri</a><nav class="sekme"><a href="../hafta.html" class=on>Maçlar</a><a href="../kupon.html">Kuponlar</a><a href="../karne.html">Karne</a><a href="../arsiv.html">Arşiv</a></nav><div class="tema" role="group" aria-label="Tema"><button type="button" data-t="light" title="Açık" aria-label="Açık tema" aria-pressed="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button><button type="button" data-t="system" title="Sistem" aria-label="Sistem tema" aria-pressed="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button><button type="button" data-t="dark" title="Koyu" aria-label="Koyu tema" aria-pressed="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg></button></div></div></header>
 <div class="wrap"><nav class="yol"><a href="../index.html">Ana sayfa</a><a href="../hafta.html">Bu hafta</a><a href="../lig-en.html">Premier League</a><span>Bournemouth – Leeds</span></nav><div class="mac-ust" style="view-transition-name:t-en-bournemouth-leeds-20261031">
 <div class="tm"><img class="arma b" src="../arma/en/bournemouth.png" alt="">Bournemouth</div><div class="orta" data-canli-mac="en-bournemouth-leeds-20261031"><div class="vs">–</div></div><div class="tm"><img class="arma b" src="../arma/en/leeds.png" alt="">Leeds</div></div>
@@ -19,7 +19,7 @@
 <div class="gez"><a href="en-chelsea-man-united-20261031.html">← Chelsea</a><a href="en-brentford-nottingham-forest-20261031.html">Brentford →</a></div>
 <footer><span>18+</span><span>Kişisel görüş ve istatistiksel yorumdur, bahis tavsiyesi değildir.</span>
 <a href="../hakkinda.html">Hakkında ve yasal uyarı</a></footer></div>
-<div class="serit" id="serit" hidden><span class="serit-et">Canlı</span><div class="serit-ic"><div class="liste"></div></div></div><script>(function(){var d=document.documentElement,b=document.querySelectorAll(".tema button");
+<div class="serit" id="serit" hidden><span class="serit-et">Canlı<small class="gec">birkaç dk gecikmeli</small></span><div class="serit-ic"><div class="liste"></div></div></div><script>(function(){var d=document.documentElement,b=document.querySelectorAll(".tema button");
 function goster(){var t=d.dataset.theme||"system";b.forEach(function(x){x.setAttribute("aria-pressed",x.dataset.t===t)})}
 b.forEach(function(x){x.addEventListener("click",function(){var t=x.dataset.t;
 if(t==="system"){delete d.dataset.theme;try{localStorage.removeItem("tema")}catch(e){}}
@@ -42,13 +42,13 @@ d.querySelectorAll('[data-canli="'+x.m.k+'"]').forEach(function(el){el.innerHTML
 d.querySelectorAll('[data-canli-mac="'+x.m.k+'"]').forEach(function(el){el.innerHTML='<div class="skor">'+es(x.hg)+" – "+es(x.ag)+'</div><div class="dk-m">'+et+'</div>'})});var c=o.filter(function(x){return x.canli});
 if(serit){if(!c.length){serit.hidden=true;d.body.classList.remove("serit-var")}
 else{serit.hidden=false;d.body.classList.add("serit-var");ak(serit.querySelector(".serit-ic"),serit.querySelector(".liste"),c.map(oge).join(""),true)}}
-if(sol&&o.length){sol.querySelector(".baslik").textContent=c.length?"Canlı":"Bugün biten";
+if(sol&&o.length){sol.querySelector(".baslik").innerHTML=c.length?'Canlı <small class="gec">birkaç dk gecikmeli</small>':"Bugün biten";
 ak(sol.querySelector(".kutu"),sol.querySelector(".liste"),o.map(oge).join(""),false)}}
 function cek(){if(d.hidden||!veri)return;var g=gun();
-Promise.all(Object.keys(veri.lig).map(function(lg){
-return fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/"+veri.lig[lg].espn+"/scoreboard?dates="+g)
+Promise.all(Object.keys(veri.lig).filter(function(lg){return(veri.lig[lg].gun||[]).indexOf(g)>=0}).map(function(lg){
+return fetch("https://cdn.espn.com/core/soccer/scoreboard?xhr=1&league="+veri.lig[lg].espn+"&dates="+g)
 .then(function(r){return r.ok?r.json():{}}).catch(function(){return{}})
-.then(function(j){return(j.events||[]).map(function(e){return[lg,e]})})})).then(function(ls){var o=[];
+.then(function(j){return(((j.content||{}).sbData||{}).events||[]).map(function(e){return[lg,e]})})})).then(function(ls){var o=[];
 ls.forEach(function(l){l.forEach(function(p){var lg=p[0],e=p[1],st=e.status&&e.status.type;if(!st||st.state==="pre")return;
 var h,a;e.competitions[0].competitors.forEach(function(x){x.homeAway==="home"?h=x:a=x});
 var t=veri.lig[lg].takim,hs=t[h.team.id],as=t[a.team.id],m=veri.mac[lg+"|"+hs+"|"+as];if(!m)return;

@@ -138,7 +138,8 @@ footer a{color:var(--acc)}
 .orta{text-align:center}.dk-m{font:.75rem "JetBrains Mono",monospace;color:var(--mut)}
 .serit{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;align-items:center;gap:10px;background:var(--card);border-top:1px solid var(--line);padding:6px 12px}
 .serit[hidden]{display:none}body.serit-var{padding-bottom:56px}
-.serit-et{font:700 .66rem "JetBrains Mono",monospace;text-transform:uppercase;color:var(--kotu);flex:none}
+.serit-et{font:700 .66rem "JetBrains Mono",monospace;text-transform:uppercase;color:var(--kotu);flex:none;display:grid;line-height:1.2}
+.gec{font:400 .6rem "JetBrains Mono",monospace;text-transform:none;color:var(--mut);letter-spacing:0;margin-left:4px}.serit-et .gec{margin:0}
 .serit-ic{overflow:hidden;flex:1}.serit .liste{display:flex;width:max-content}
 .serit .liste.ak{animation-name:yana}.serit .cs{grid-template-columns:auto auto auto;align-items:center;gap:10px;border:0;white-space:nowrap}
 .serit .cs+.cs{border-left:1px solid var(--line);border-radius:0}
