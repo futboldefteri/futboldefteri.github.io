@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<defs><clipPath id="top"><circle cx="46" cy="45" r="9"/></clipPath></defs>
+<rect x="3" y="2" width="59" height="60" rx="12" fill="#24211C"/>
+<rect x="13" y="7" width="45" height="50" rx="5" fill="#0E8C7E"/>
+<g fill="none" stroke="#F3EFE6" stroke-width="3"><rect x="18" y="12" width="35" height="40" rx="1.5"/><line x1="18" y1="32" x2="53" y2="32"/></g>
+<g fill="#F3EFE6"><rect x="6" y="12" width="9" height="4" rx="2"/><rect x="6" y="24" width="9" height="4" rx="2"/><rect x="6" y="36" width="9" height="4" rx="2"/><rect x="6" y="48" width="9" height="4" rx="2"/></g>
+<circle cx="46" cy="45" r="10.8" fill="#24211C"/><circle cx="46" cy="45" r="9" fill="#FFFFFF"/>
+<g clip-path="url(#top)" fill="#24211C"><polygon points="46.00,41.76 49.08,44.00 47.90,47.62 44.10,47.62 42.92,44.00"/><polygon points="46.00,39.06 42.92,36.82 44.10,33.20 47.90,33.20 49.08,36.82"/><polygon points="51.65,43.16 52.83,39.54 56.64,39.54 57.81,43.16 54.73,45.40"/><polygon points="49.49,49.81 53.30,49.81 54.48,53.43 51.40,55.67 48.31,53.43"/><polygon points="42.51,49.81 43.69,53.43 40.60,55.67 37.52,53.43 38.70,49.81"/><polygon points="40.35,43.16 37.27,45.40 34.19,43.16 35.36,39.54 39.17,39.54"/></g>
+</svg>
