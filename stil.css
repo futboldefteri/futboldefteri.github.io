@@ -31,7 +31,7 @@ a{color:inherit;text-decoration:none}
 .ust{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
 .ust .ic{max-width:1200px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .logo{font:700 1.02rem "Space Grotesk",sans-serif;letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:9px}
-.logo:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--acc)}
+.logo img{width:26px;height:26px;flex:none}
 .sekme{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
 .sekme a{font:600 .84rem "Space Grotesk",sans-serif;padding:6px 12px;border-radius:99px;color:var(--mut);white-space:nowrap}
 .sekme a.on{background:var(--acc);color:var(--on)}.sekme a:hover:not(.on){background:var(--bg2)}
@@ -49,7 +49,7 @@ a.kart:hover{border-color:var(--acc)}a.kart:active{transform:scale(.99)}
 /* ana sayfa */
 .sahne{display:grid;grid-template-columns:1fr 380px;gap:24px;min-height:calc(100vh - 140px)}
 .sol{position:relative;border-radius:20px;overflow:hidden;background:var(--bg2);display:flex;flex-direction:column;justify-content:flex-end;padding:36px;min-height:420px}
-.sol svg{position:absolute;inset:0;width:100%;height:100%}
+.sol svg{position:absolute;inset:0;width:100%;height:100%}.sol .saha-d{display:none}
 .sol .ort{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,var(--bg2) 82%)}
 .sol h1{position:relative;font-size:3rem;line-height:1.05;letter-spacing:-.02em;max-width:12ch;margin:0}
 .sol p{position:relative;color:var(--mut);margin:10px 0 0;font:600 .78rem "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
@@ -132,6 +132,8 @@ footer a{color:var(--acc)}
 .liste.ak{animation:asagi linear infinite}.kutu:hover .liste.ak,.serit-ic:hover .liste.ak{animation-play-state:paused}
 @keyframes asagi{to{transform:translateY(-50%)}}@keyframes yana{to{transform:translateX(-50%)}}
 @keyframes nabiz{50%{opacity:.25}}
+.cn{color:var(--kotu)!important;font-weight:700}.cn:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--kotu);margin-right:4px;vertical-align:1px;animation:nabiz 1.4s infinite}
+.orta{text-align:center}.dk-m{font:.75rem "JetBrains Mono",monospace;color:var(--mut)}
 .serit{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;align-items:center;gap:10px;background:var(--card);border-top:1px solid var(--line);padding:6px 12px}
 .serit[hidden]{display:none}body.serit-var{padding-bottom:56px}
 .serit-et{font:700 .66rem "JetBrains Mono",monospace;text-transform:uppercase;color:var(--kotu);flex:none}
@@ -139,7 +141,7 @@ footer a{color:var(--acc)}
 .serit .liste.ak{animation-name:yana}.serit .cs{grid-template-columns:auto auto auto;align-items:center;gap:10px;border:0;white-space:nowrap}
 .serit .cs+.cs{border-left:1px solid var(--line);border-radius:0}
 @media (prefers-reduced-motion:reduce){.liste.ak{animation:none}.kutu,.serit-ic{overflow:auto}}
-@media (min-width:861px){.sahne{grid-template-columns:230px 1fr 360px}}
+@media (min-width:861px){.sahne{grid-template-columns:230px 1fr 360px}.sol .saha-y{display:none}.sol .saha-d{display:block}}
 /* Canli skor yalniz masaustunde (Ersin, 30.10): dar ekranda gizli ve JS hic istek atmaz. */
 @media (max-width:860px){.canli-sol,.serit{display:none!important}body.serit-var{padding-bottom:0}}
 @media (max-width:860px){.sahne{grid-template-columns:1fr;min-height:0}.sol{min-height:240px;padding:22px}.sol h1{font-size:2rem}}
