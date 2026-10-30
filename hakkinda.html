@@ -24,7 +24,7 @@ b.forEach(function(x){x.addEventListener("click",function(){var t=x.dataset.t;
 if(t==="system"){delete d.dataset.theme;try{localStorage.removeItem("tema")}catch(e){}}
 else{d.dataset.theme=t;try{localStorage.setItem("tema",t)}catch(e){}}goster()})});goster()})();</script><script>(function(){
 var d=document,kok=d.documentElement.dataset.kok||"",sol=d.getElementById("canli-sol"),serit=d.getElementById("serit");
-if(!sol&&!serit)return;var veri;
+if((!sol&&!serit)||matchMedia("(max-width:860px)").matches)return;var veri;
 if(sol)sol.querySelectorAll(".cs[data-t]").forEach(function(x){if(+x.dataset.t<Date.now())x.remove()});
 function es(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function gun(){return new Date(Date.now()+3*36e5).toISOString().slice(0,10).replace(/-/g,"")}
@@ -38,7 +38,7 @@ function ciz(o){o.sort(function(a,b){return b.canli-a.canli});var c=o.filter(fun
 if(serit){if(!c.length){serit.hidden=true;d.body.classList.remove("serit-var")}
 else{serit.hidden=false;d.body.classList.add("serit-var");ak(serit.querySelector(".serit-ic"),serit.querySelector(".liste"),c.map(oge).join(""),true)}}
 if(sol&&o.length){sol.querySelector(".baslik").textContent=c.length?"Canlı":"Bugün biten";
-ak(sol.querySelector(".kutu"),sol.querySelector(".liste"),o.map(oge).join(""),innerWidth<=860)}}
+ak(sol.querySelector(".kutu"),sol.querySelector(".liste"),o.map(oge).join(""),false)}}
 function cek(){if(d.hidden||!veri)return;var g=gun();
 Promise.all(Object.keys(veri.lig).map(function(lg){
 return fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/"+veri.lig[lg].espn+"/scoreboard?dates="+g)

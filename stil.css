@@ -140,6 +140,6 @@ footer a{color:var(--acc)}
 .serit .cs+.cs{border-left:1px solid var(--line);border-radius:0}
 @media (prefers-reduced-motion:reduce){.liste.ak{animation:none}.kutu,.serit-ic{overflow:auto}}
 @media (min-width:861px){.sahne{grid-template-columns:230px 1fr 360px}}
-@media (max-width:860px){.canli-sol .kutu{max-height:none}.canli-sol .liste{display:flex;overflow-x:auto;width:100%}
-.canli-sol .liste.ak{width:max-content;overflow:visible;animation-name:yana}.canli-sol .cs{min-width:170px}.canli-sol .cs+.cs{border-top:0;border-left:1px solid var(--line);border-radius:0}}
+/* Canli skor yalniz masaustunde (Ersin, 30.10): dar ekranda gizli ve JS hic istek atmaz. */
+@media (max-width:860px){.canli-sol,.serit{display:none!important}body.serit-var{padding-bottom:0}}
 @media (max-width:860px){.sahne{grid-template-columns:1fr;min-height:0}.sol{min-height:240px;padding:22px}.sol h1{font-size:2rem}}
