@@ -93,6 +93,8 @@ a.kart:hover{border-color:var(--acc)}a.kart:active{transform:scale(.99)}
 .kn-alt{display:flex;justify-content:space-between;gap:8px;margin-top:12px;padding-top:10px;border-top:1px solid var(--line);color:var(--mut);font-size:.8rem}
 .kn-alt b{font-family:"JetBrains Mono",monospace;color:var(--fg)}
 .lig .lo{margin-top:6px;font:600 .74rem "JetBrains Mono",monospace;color:var(--mut)}
+.kt input:checked+label{background:var(--acc);color:var(--on)}.kpan{display:none;width:100%;margin-top:10px}
+#kr-tum:checked~#kpan-tum{display:block}#kr-tr:checked~#kpan-tr{display:block}#kr-en:checked~#kpan-en{display:block}#kr-es:checked~#kpan-es{display:block}#kr-it:checked~#kpan-it{display:block}#kr-fr:checked~#kpan-fr{display:block}#kr-de:checked~#kpan-de{display:block}
 .lo span{white-space:nowrap}.t-saglam{color:var(--h)}.t-dengeli{color:var(--d)}.t-cesur{color:var(--a)}
 .bo .sc{flex:1}.pp{font:700 1rem "JetBrains Mono",monospace;color:var(--h)}
 .ok-i{color:var(--iyi);font-weight:700}.ok-k{color:var(--kotu);font-weight:700}
