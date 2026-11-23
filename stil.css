@@ -79,7 +79,7 @@ a.kart:hover{border-color:var(--acc)}a.kart:active{transform:scale(.99)}
 .mac-ust{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-top:4px}
 .skor{font:700 2rem "JetBrains Mono",monospace;text-align:center}
 .zm{font:.76rem "JetBrains Mono",monospace;color:var(--mut);text-align:center;margin-top:10px}
-.mac-izgara{display:grid;gap:16px;margin-top:6px}
+.mac-izgara{display:grid;gap:16px;margin-top:6px}.mac-izgara>*,.mac-ust>*{min-width:0}
 .olc{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .olc div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
 .olc small{display:block;color:var(--mut);font-size:.72rem}.olc b{font:700 1.25rem "JetBrains Mono",monospace}
@@ -102,6 +102,49 @@ a.kart:hover{border-color:var(--acc)}a.kart:active{transform:scale(.99)}
 .cip{font:600 .72rem "JetBrains Mono",monospace;border:1px solid var(--acc);color:var(--acc);border-radius:99px;padding:3px 10px}
 .yorum{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:var(--card)}
 .yorum summary{cursor:pointer;font-weight:600;font-size:.9rem}.yorum p{margin:.6rem 0 0;line-height:1.7;font-size:.92rem}
+.yorum-kart{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--card)}
+.yorum-kart p{margin:8px 0 0;line-height:1.7;font-size:.93rem}
+.bar-lej{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:-4px 0 12px;font:.76rem "JetBrains Mono",monospace;color:var(--mut)}
+.bar-lej span{display:flex;align-items:center;gap:5px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-lej span:nth-child(2){justify-content:center}.bar-lej span:nth-child(3){justify-content:flex-end}
+@media (max-width:520px){.bar-lej{font-size:.69rem}}
+.bar-lej b{color:var(--fg)}.nok{width:8px;height:8px;border-radius:50%;flex:none;display:inline-block}
+.olasilik-kart{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px;display:grid;gap:12px}
+.ol-satir .ol-ust{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:.82rem;margin-bottom:5px}
+.ol-satir .ol-ust b{font-family:"JetBrains Mono",monospace}.ol-satir .ol-ust small{color:var(--mut);font-family:"JetBrains Mono",monospace;font-size:.74rem}
+.ol-bar{display:flex;height:9px;border-radius:99px;background:var(--bg2);overflow:hidden;gap:2px}
+.ol-bar span{display:block;height:100%;border-radius:99px}
+.skor-liste{display:grid;gap:6px;margin-top:2px}
+.skor-satir{display:grid;grid-template-columns:40px 1fr 38px;align-items:center;gap:8px;font:.8rem "JetBrains Mono",monospace}
+.skor-satir .sk-k{font-weight:700;color:var(--fg)}.skor-satir .sk-p{text-align:right;color:var(--mut)}
+.paylas{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.pay-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--fg);font:600 .78rem "Space Grotesk",sans-serif;cursor:pointer;transition:border-color .15s,color .15s}
+.pay-btn:hover{border-color:var(--acc);color:var(--acc)}.pay-btn.tamam{border-color:var(--iyi);color:var(--iyi)}
+.guven-satir{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.guven-satir div{background:var(--bg2);border-radius:10px;padding:8px 9px}
+.guven-satir small{display:block;font:.66rem "JetBrains Mono",monospace;text-transform:uppercase;color:var(--mut)}
+.guven-satir b{display:block;font:700 1.05rem "JetBrains Mono",monospace;margin-top:2px}
+.guven-satir .bek{font:.68rem "JetBrains Mono",monospace;color:var(--mut)}
+.guven-alt{margin-top:9px;padding-top:8px;border-top:1px solid var(--line);font-size:.76rem;color:var(--mut);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.hizli{display:flex;flex-wrap:wrap;gap:6px}
+.hizli a{font:600 .76rem "Space Grotesk",sans-serif;padding:5px 11px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--mut)}
+.hizli a:hover{border-color:var(--acc);color:var(--acc)}
+.grafik-kart{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.grafik-kart h2{font:700 1.05rem "Space Grotesk",sans-serif;margin:0 0 4px}
+.grafik-kart svg{width:100%;height:auto;display:block;margin-top:8px}
+.grafik-lej{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;font:.74rem "JetBrains Mono",monospace;color:var(--mut)}
+.grafik-lej span{display:inline-flex;align-items:center;gap:5px}
+.fark-arti{color:var(--iyi);font-weight:700}.fark-eksi{color:var(--kotu);font-weight:700}
+.kp-mini{display:inline-flex;gap:5px;font:.74rem "JetBrains Mono",monospace}
+.kp-mini span{padding:2px 6px;border-radius:5px;background:var(--bg2)}
+.tem-kart{display:grid;gap:8px;padding:13px 15px}
+.tem-ust{display:flex;justify-content:space-between;align-items:center;gap:8px;font:.74rem "JetBrains Mono",monospace;color:var(--mut)}
+.tem-takim{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font:700 .98rem "Space Grotesk",sans-serif}
+.tem-alt{display:flex;justify-content:space-between;align-items:center;gap:8px;font:.76rem "JetBrains Mono",monospace;color:var(--mut)}
+.bugun-kap{display:flex;flex-direction:column}
+.bugun-grup{margin-bottom:8px}
+.bugun-grup.secili{order:-1}
+.bugun-rozet{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:99px;background:var(--acc);color:var(--on);font-size:.66rem}
 .gez{display:flex;justify-content:space-between;gap:10px;margin-top:22px;font-size:.84rem;color:var(--mut)}.gez a:hover{color:var(--acc)}
 /* kupon */
 .sekmeler{display:flex;flex-wrap:wrap;gap:6px}.sekmeler input{position:absolute;opacity:0;pointer-events:none}
