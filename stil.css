@@ -104,6 +104,19 @@ a.kart:hover{border-color:var(--acc)}a.kart:active{transform:scale(.99)}
 .yorum summary{cursor:pointer;font-weight:600;font-size:.9rem}.yorum p{margin:.6rem 0 0;line-height:1.7;font-size:.92rem}
 .yorum-kart{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--card)}
 .yorum-kart p{margin:8px 0 0;line-height:1.7;font-size:.93rem}
+.uzak-kutu{margin-top:10px;border:1px solid var(--line);border-left:3px solid var(--kotu);border-radius:10px;padding:10px 13px;background:var(--card);display:grid;gap:3px}
+.uzak-kutu .uz-ust{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.uzak-kutu b{font:700 .9rem "Space Grotesk",sans-serif}.uzak-kutu small{font:.74rem "JetBrains Mono",monospace;color:var(--mut)}
+.analiz-kart{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.analiz-bolum{padding:12px 15px;border-top:1px solid var(--line)}
+.analiz-bolum:first-child{border-top:0}
+.analiz-bolum p{margin:6px 0 0;line-height:1.65;font-size:.91rem}
+.analiz-bolum ul{margin:6px 0 0;padding-left:18px;display:grid;gap:5px;font-size:.9rem;line-height:1.55}
+.analiz-bolum.a-risk{border-left:3px solid var(--a)}
+.analiz-bolum.a-guv{border-left:3px solid var(--h)}
+.analiz-bolum.a-uzak{border-left:3px solid var(--kotu)}
+.analiz-etiket{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.analiz-etiket .roz{font:700 .74rem "JetBrains Mono",monospace;color:var(--fg)}
 .bar-lej{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:-4px 0 12px;font:.76rem "JetBrains Mono",monospace;color:var(--mut)}
 .bar-lej span{display:flex;align-items:center;gap:5px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bar-lej span:nth-child(2){justify-content:center}.bar-lej span:nth-child(3){justify-content:flex-end}
